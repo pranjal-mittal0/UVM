@@ -26,11 +26,16 @@ class our_agent extends uvm_agent;
         sequencer=our_sequencer::type_id::create("our_sequencer",this);
         driver=our_driver::type_id::create("our_driver", this);
         monitor=our_monitor::type_id::create("our_monitor",this);
+            // our_sequencer is component type which is the name of our sequencer class.                                                                     
+            //create is a factory methord with 2 parameter, name of object and this(a static methord to create objects)
+            //similarly in env.sv, we need to create agent 
     endfunction
     //connect phase
     function void connect_phase(uvm_phase phase);
         //necessary connections
-        
+        //ports are connected here.
+        driver.seq_item_port.connect(sequencer.seq_item_export); //driver's port's name is seq_item_port which is connected to sequencer's port whose name is seq_item_export.
+                                                                //these names are given by creator of UVM. if we design our own ports then we can name whatever we want.
     endfunction
 
     //run phase. 
