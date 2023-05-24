@@ -24,7 +24,7 @@ module top ();
     //we need to use the set methord to set the interface in the database.
     initial begin
         //set methord
-        uvm_config_db #(virtual our_interface)::set(null,"*", "intf",intf);
+        uvm_config_db #(virtual our_interface)::set(null,"*", "intf",intf);          /////////////??????????meaning.
     end
     //similar is syntax of get methord, that we have to write in driver and monitor
 

@@ -25,7 +25,7 @@ class our_agent extends uvm_agent;
         //these three are on same hierarchical level, and are not building any further classes.
         sequencer=our_sequencer::type_id::create("our_sequencer",this);
         driver=our_driver::type_id::create("our_driver", this);
-        monitor=our_monitor::type_id::create("our_monitor",this);
+        monitor=our_monitor::type_id::create("our_monitor",this);         /////////////////////////////////////// ??????????????????ask why this.
             // our_sequencer is component type which is the name of our sequencer class.                                                                     
             //create is a factory methord with 2 parameter, name of object and this(a static methord to create objects)
             //similarly in env.sv, we need to create agent 

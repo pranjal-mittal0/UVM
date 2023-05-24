@@ -1,0 +1,31 @@
+xrun(64): 19.09-s006: (c) Copyright 1995-2019 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	19.09-s006: Started on May 12, 2023 at 14:33:55 IST
+xrun
+	-f lab1run.f
+		packet_pkg.sv
+		packet_test.sv
+Loading snapshot worklib.packet_test:sv .................... Done
+xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+xcelium> source /ce/vendors/cadence/xcelium/19.09.006/tools/xcelium/files/xmsimrc
+xcelium> run
+print default (HEX)
+----------------------------------
+name: p, type: ANY
+from source 1, to target 2, data 2a
+----------------------------------
+
+print DEC
+----------------------------------
+name: p, type: ANY
+from source 1, to target 2, data 42
+----------------------------------
+
+print BIN
+----------------------------------
+name: p, type: ANY
+from source 0001, to target 0010, data 00101010
+----------------------------------
+
+xmsim: *W,RNQUIE: Simulation is complete.
+xcelium> exit
+TOOL:	xrun(64)	19.09-s006: Exiting on May 12, 2023 at 14:34:07 IST  (total: 00:00:12)

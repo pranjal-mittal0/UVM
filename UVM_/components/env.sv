@@ -19,7 +19,9 @@ class our_env extends uvm_env;
     function void build_phase(uvm_phase phase); //phase is just name of phase, for ease of use, we use phase
         //build other components
         //build agent class
-        agent=our_agent::type_id::create("agent",this);//create agent.
+        agent=our_agent::type_id::create("agent",this);//create agent.                /////////////////////////////////////// ??????????????????ask why this.
+                    // our_agent is component type which is the name of our agent class.                                                                     
+            //create is a factory methord with 2 parameter, name of object and this(a static methord to create objects)
     endfunction
     //connect phase
     function void connect_phase(uvm_phase phase);

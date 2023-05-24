@@ -14,7 +14,7 @@ import packet_pkg::*;
 
 packet p;
 initial begin
-  p=new(p,0);
+  p = new("p",0);
   p.data=42;
   p.target=2;
   $display("print default (HEX)");
