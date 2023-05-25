@@ -32,15 +32,15 @@ class packet;
   // basic constraint (over-ridden for broadcast packet)
   constraint ts_bits {|(target & source) != 1'b1;}
   constraint t_not0 {target != 0;}
-/*
-  // solve-before constraint to change distribution
-  //constraint ptype_order {solve ptype before target;}
-  // conditional constraint on target for packet type
-  constraint packet_type {solve ptype before target;
-                          ptype == SINGLE -> target inside {1,2,4,8};
-                          ptype == MULTICAST -> target inside {3,[5:7],[9:14]};
-                          ptype == BROADCAST -> target == 15;} 
-*/
+  /*
+    // solve-before constraint to change distribution
+    //constraint ptype_order {solve ptype before target;}
+    // conditional constraint on target for packet type
+    constraint packet_type {solve ptype before target;
+                            ptype == SINGLE -> target inside {1,2,4,8};
+                            ptype == MULTICAST -> target inside {3,[5:7],[9:14]};
+                            ptype == BROADCAST -> target == 15;} 
+  */
  // print with policy
   function void print(input pp_t pp = BIN);
     $display("\n----------------------------------");
@@ -64,34 +64,34 @@ class packet;
   endclass
 
   // single packet sub-class
-  class psingle extends packet;
-    constraint csingle {target inside {1,2,4,8};}
+class psingle extends packet;
+  constraint csingle {target inside {1,2,4,8};}
 
-    function new (string name, int idt);
-      super.new(name,idt);
-      ptype = SINGLE;
-    endfunction
-  endclass
+  function new (string name, int idt);
+    super.new(name,idt);
+    ptype = SINGLE;
+  endfunction
+endclass
 
-  // multicast packet sub-class
-  class pmulticast extends packet;
-    constraint csingle {target inside {3,[5:7],[9:14]};}
+// multicast packet sub-class
+class pmulticast extends packet;
+  constraint cmulticast {target inside {3,[5:7],[9:14]};}
 
-    function new (string name, int idt);
-      super.new(name,idt);
-      ptype = MULTICAST;
-    endfunction
-  endclass
+  function new (string name, int idt);
+    super.new(name,idt);
+    ptype = MULTICAST;
+  endfunction
+endclass
 
-  // broadcast packet sub-class
-  class pbroadcast extends packet;
-    // remove basic constraint from packet parent!!
-    constraint ts_bits {}
-    constraint cbroadcast {target==14;}
+// broadcast packet sub-class
+class pbroadcast extends packet;
+  // remove basic constraint from packet parent!!
+  constraint ts_bits {}
+  constraint cbroadcast {target==14;}
 
-    function new (string name, int idt);
-      super.new(name,idt);
-      ptype = BROADCAST;
-    endfunction
-  endclass
+  function new (string name, int idt);
+    super.new(name,idt);
+    ptype = BROADCAST;
+  endfunction
+endclass
 

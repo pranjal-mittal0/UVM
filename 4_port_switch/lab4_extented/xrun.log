@@ -1,0 +1,124 @@
+xrun(64): 19.09-s006: (c) Copyright 1995-2019 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	19.09-s006: Started on May 25, 2023 at 22:29:15 IST
+xrun
+	-f lab4run.f
+		packet_pkg.sv
+		packet_test.sv
+Recompiling... reason: file './packet_data.sv' is newer than expected.
+	expected: Thu May 25 22:25:05 2023
+	actual:   Thu May 25 22:29:11 2023
+file: packet_pkg.sv
+	package worklib.packet_pkg:sv
+		errors: 0, warnings: 0
+file: packet_test.sv
+	module worklib.packet_test:sv
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		packet_pkg
+		packet_test
+xmelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.packet_test:sv <0x1d50e369>
+			streams:   3, words:  8673
+		worklib.packet_pkg:sv <0x74b4821a>
+			streams:   5, words:  2312
+		worklib.packet_pkg:sv <0x46c50343>
+			streams:   5, words:  2312
+		worklib.packet_pkg:sv <0x02608369>
+			streams:   5, words:  2312
+		worklib.packet_pkg:sv <0x6b549716>
+			streams:  10, words:  8200
+		worklib.packet_pkg:sv <0x5844d7f4>
+			streams:   0, words:     0
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                    Instances  Unique
+		Modules:                    1       1
+		Verilog packages:           1       1
+		Registers:                 41      46
+		Initial blocks:             1       1
+		SV Class declarations:      4       4
+		SV Class specializations:   4       4
+	Writing initial simulation snapshot: worklib.packet_test:sv
+Loading snapshot worklib.packet_test:sv .................... Done
+xmsim: *W,XCLGNOPTM: The SystemVerilog constraint solver Xceligen options 'seed_only_rand and process_alternate_rng and ignore_worklib_name' are not specified and will default to 0. The recommended value for each of them is 1 which will become the default in a future release.
+SVSEED default: 1
+xmsim: *W,RNDXCELON: Xceligen, the new SystemVerilog constraint solver is used. Disabling Xceligen and using the legacy constraint solver is possible with "xrun/xmsim -xceligen on=0 ...".
+xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+xcelium> source /ce/vendors/cadence/xcelium/19.09.006/tools/xcelium/files/xmsimrc
+xcelium> run
+
+----------------------------------
+name: parray[15], type: MULTICAST
+from source 0010, to target 1100, data 10111010
+
+----------------------------------
+name: parray[14], type: SINGLE
+from source 0001, to target 1000, data 00100101
+
+----------------------------------
+name: parray[13], type: MULTICAST
+from source 0010, to target 1001, data 00011101
+
+----------------------------------
+name: parray[12], type: SINGLE
+from source 0001, to target 1000, data 00000100
+
+----------------------------------
+name: parray[11], type: SINGLE
+from source 0001, to target 0100, data 01001011
+
+----------------------------------
+name: parray[10], type: MULTICAST
+from source 0010, to target 1100, data 11111000
+
+----------------------------------
+name: parray[9], type: SINGLE
+from source 0001, to target 1000, data 11110101
+
+----------------------------------
+name: parray[8], type: BROADCAST
+from source 0100, to target 1110, data 00111001
+ERROR: broadcast packet target is e not 4'hf
+
+----------------------------------
+name: parray[7], type: BROADCAST
+from source 0100, to target 1110, data 11100110
+ERROR: broadcast packet target is e not 4'hf
+
+----------------------------------
+name: parray[6], type: MULTICAST
+from source 0010, to target 1001, data 00111110
+
+----------------------------------
+name: parray[5], type: MULTICAST
+from source 0010, to target 1001, data 11100111
+
+----------------------------------
+name: parray[4], type: SINGLE
+from source 0001, to target 1000, data 11001100
+
+----------------------------------
+name: parray[3], type: BROADCAST
+from source 0100, to target 1110, data 11000110
+ERROR: broadcast packet target is e not 4'hf
+
+----------------------------------
+name: parray[2], type: MULTICAST
+from source 0010, to target 0101, data 01011110
+
+----------------------------------
+name: parray[1], type: MULTICAST
+from source 0010, to target 1101, data 10101011
+
+----------------------------------
+name: parray[0], type: BROADCAST
+from source 0100, to target 1110, data 00011111
+ERROR: broadcast packet target is e not 4'hf
+xmsim: *W,RNQUIE: Simulation is complete.
+xcelium> exit
+TOOL:	xrun(64)	19.09-s006: Exiting on May 25, 2023 at 22:29:26 IST  (total: 00:00:11)
