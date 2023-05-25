@@ -1,0 +1,71 @@
+xrun(64): 19.09-s006: (c) Copyright 1995-2019 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	19.09-s006: Started on May 25, 2023 at 15:18:34 IST
+xrun
+	-f lab3run.f
+		packet_pkg.sv
+		packet_test.sv
+Recompiling... reason: file './packet_data.sv' is newer than expected.
+	expected: Thu May 25 15:17:32 2023
+	actual:   Thu May 25 15:18:32 2023
+file: packet_pkg.sv
+	package worklib.packet_pkg:sv
+		errors: 0, warnings: 0
+file: packet_test.sv
+	module worklib.packet_test:sv
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		packet_pkg
+		packet_test
+xmelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.packet_test:sv <0x0461f1a5>
+			streams:   3, words:  9385
+		worklib.packet_pkg:sv <0x2d135698>
+			streams:  11, words:  9937
+		worklib.packet_pkg:sv <0x3d4c21b3>
+			streams:   0, words:     0
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                    Instances  Unique
+		Modules:                    1       1
+		Verilog packages:           1       1
+		Registers:                 19      26
+		Initial blocks:             1       1
+		SV Class declarations:      1       1
+		SV Class specializations:   1       1
+	Writing initial simulation snapshot: worklib.packet_test:sv
+Loading snapshot worklib.packet_test:sv .................... Done
+xmsim: *W,XCLGNOPTM: The SystemVerilog constraint solver Xceligen options 'seed_only_rand and process_alternate_rng and ignore_worklib_name' are not specified and will default to 0. The recommended value for each of them is 1 which will become the default in a future release.
+SVSEED default: 1
+xmsim: *W,RNDXCELON: Xceligen, the new SystemVerilog constraint solver is used. Disabling Xceligen and using the legacy constraint solver is possible with "xrun/xmsim -xceligen on=0 ...".
+xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+xcelium> source /ce/vendors/cadence/xcelium/19.09.006/tools/xcelium/files/xmsimrc
+xcelium> run
+
+
+ number of packets 0 
+----------------------------------
+name: p, type: BROADCAST, packet_count: 1, tag: 1, tag_mode: IDED
+from source 1, to target 15, data 1
+----------------------------------
+
+----------------------------------
+name: p, type: ANY, packet_count: 2, tag: 2, tag_mode: IDED
+from source 1, to target 4, data 2
+----------------------------------
+
+----------------------------------
+name: p, type: BROADCAST, packet_count: 3, tag: 3, tag_mode: UNIDED
+from source 1, to target 15, data 193
+----------------------------------
+
+
+
+ number of packets 3
+xmsim: *W,RNQUIE: Simulation is complete.
+xcelium> exit
+TOOL:	xrun(64)	19.09-s006: Exiting on May 25, 2023 at 15:18:45 IST  (total: 00:00:11)
