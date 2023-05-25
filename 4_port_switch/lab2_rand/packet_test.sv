@@ -2,7 +2,7 @@
 File name     : packet_test.sv
 Developers    : Pranjal Mittal
 Created       : 05/05/2023
-Description   : lab1 packet data item 
+Description   : lab2 packet data item 
 Notes         : From the Cadence "Essential SystemVerilog for UVM" training
 -------------------------------------------------------------------
 This is for lab work for the above training.
@@ -13,16 +13,16 @@ module packet_test;
 import packet_pkg::*;
 
 packet p;
+bit ok;
 initial begin
-  p=new(p,0);
-  p.data=42;
-  p.target=2;
-  $display("print default (HEX)");
+  p = new("p",0);
+  repeat (10) begin
+    ok = p.randomize();
+    p.print();
+  end
+  //ok = p.randomize() with { target==4'hf;};
+  ok = p.randomize() with { ptype != ANY;};
   p.print();
-  $display("print DEC");
-  p.print(DEC);
-  $display("print BIN");
-  p.print(BIN);
 end
 
 

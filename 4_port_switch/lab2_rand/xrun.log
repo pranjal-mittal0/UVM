@@ -1,0 +1,105 @@
+xrun(64): 19.09-s006: (c) Copyright 1995-2019 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	19.09-s006: Started on May 25, 2023 at 14:27:04 IST
+xrun
+	-f lab2run.f
+		packet_pkg.sv
+		packet_test.sv
+Recompiling... reason: file './packet_data.sv' is newer than expected.
+	expected: Wed May 24 16:40:05 2023
+	actual:   Thu May 25 14:27:02 2023
+file: packet_pkg.sv
+	package worklib.packet_pkg:sv
+		errors: 0, warnings: 0
+file: packet_test.sv
+	module worklib.packet_test:sv
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		packet_pkg
+		packet_test
+xmelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.packet_test:sv <0x40959e6b>
+			streams:   3, words:  6930
+		worklib.packet_pkg:sv <0x6521f4b0>
+			streams:  10, words:  8622
+		worklib.packet_pkg:sv <0x4f1fe03f>
+			streams:   0, words:     0
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                    Instances  Unique
+		Modules:                    1       1
+		Verilog packages:           1       1
+		Registers:                 17      22
+		Initial blocks:             1       1
+		SV Class declarations:      1       1
+		SV Class specializations:   1       1
+	Writing initial simulation snapshot: worklib.packet_test:sv
+Loading snapshot worklib.packet_test:sv .................... Done
+xmsim: *W,XCLGNOPTM: The SystemVerilog constraint solver Xceligen options 'seed_only_rand and process_alternate_rng and ignore_worklib_name' are not specified and will default to 0. The recommended value for each of them is 1 which will become the default in a future release.
+SVSEED default: 1
+xmsim: *W,RNDXCELON: Xceligen, the new SystemVerilog constraint solver is used. Disabling Xceligen and using the legacy constraint solver is possible with "xrun/xmsim -xceligen on=0 ...".
+xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+xcelium> source /ce/vendors/cadence/xcelium/19.09.006/tools/xcelium/files/xmsimrc
+xcelium> run
+----------------------------------
+name: p, type: BROADCAST
+from source 1, to target f, data 02
+----------------------------------
+
+----------------------------------
+name: p, type: BROADCAST
+from source 1, to target f, data ad
+----------------------------------
+
+----------------------------------
+name: p, type: SINGLE
+from source 1, to target 8, data 82
+----------------------------------
+
+----------------------------------
+name: p, type: SINGLE
+from source 1, to target 4, data 00
+----------------------------------
+
+----------------------------------
+name: p, type: BROADCAST
+from source 1, to target f, data c4
+----------------------------------
+
+----------------------------------
+name: p, type: SINGLE
+from source 1, to target 2, data 9b
+----------------------------------
+
+----------------------------------
+name: p, type: BROADCAST
+from source 1, to target f, data 32
+----------------------------------
+
+----------------------------------
+name: p, type: ANY
+from source 1, to target f, data 0c
+----------------------------------
+
+----------------------------------
+name: p, type: MULTIPLE
+from source 1, to target 6, data 43
+----------------------------------
+
+----------------------------------
+name: p, type: MULTIPLE
+from source 1, to target 6, data 88
+----------------------------------
+
+----------------------------------
+name: p, type: MULTIPLE
+from source 1, to target 6, data dd
+----------------------------------
+
+xmsim: *W,RNQUIE: Simulation is complete.
+xcelium> exit
+TOOL:	xrun(64)	19.09-s006: Exiting on May 25, 2023 at 14:27:16 IST  (total: 00:00:12)

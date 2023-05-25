@@ -2,7 +2,7 @@
 File name     : sequencer.sv
 Developers    : Pranjal Mittal
 Created       : 11/05/2023
-Description   : 
+Description   : this will take sequence one by one and give it to driver to drive.
 -------------------------------------------------------------------*/
 
 class our_sequencer extends uvm_sequencer;

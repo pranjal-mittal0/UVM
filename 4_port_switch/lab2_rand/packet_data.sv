@@ -2,7 +2,7 @@
 File name     : packet_data.sv
 Developers    : Pranjal Mittal
 Created       : 05/05/2023
-Description   : lab1 packet data item 
+Description   : lab2 packet data item 
 Notes         : From the Cadence "Essential SystemVerilog for UVM" training
 -------------------------------------------------------------------
 This is for lab work for the above training.
@@ -22,16 +22,9 @@ class packet;
   rand bit [3:0] target;
   bit [3:0] source;
   rand bit [7:0] data;
-  packet_type ptype;
+  rand packet_type ptype;
   function new(string name, integer source);
     this.name=name;
-    // case(source)
-    //   0: this.source=4'b0001;
-    //   1: this.source=4'b0010;
-    //   2: this.source=4'b0100;
-    //   3: this.source=4'b1000;
-    //   default : this.source=4'b0001;
-    // endcase
     this.source = 1 << source;
     ptype = ANY;
   endfunction
@@ -53,16 +46,18 @@ class packet;
       BIN: $display("from source %b, to target %b, data %b",source,target,data);
     endcase
     $display("----------------------------------\n");
-  constraint target_length{
-    target!=0;
-  }
-  constraint target_bits{
-    target!=source;
-  }
 
-  
   endfunction
  // add print with policy
+
+ //class constraint
+ constraint target_length{  target !=0; }
+// constraint target_bits{(target&source)==4'b0; }
+constraint ptype_order{solve ptype before target;}
+ constraint packet_type_constraint{ ptype == SINGLE -> { target inside {1,2,4,8}; (target & source) == 4'b0; } //remember multiple constraints in branch needs to be enclosed in brackets
+                                    ptype == MULTIPLE -> { target inside {3,[5:7],[9:14]}; (target & source) == 4'b0; } 
+                                    ptype == BROADCAST -> target == 15;  //removing target& source constraint allows that the bit of source and target can be same
+ }
  
 endclass
 
