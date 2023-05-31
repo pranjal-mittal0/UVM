@@ -28,12 +28,12 @@ class sequencer extends component_base;
         pkt = ps;
         end
       1:begin : multicast_packet
-        pm = new("ps",portno); 
+        pm = new("pm",portno); 
         ok = pm.randomize();
         pkt = pm;
         end
       1:begin : broadcast_packet
-        pb = new("ps",portno); 
+        pb = new("pb",portno); 
         ok = pb.randomize();
         pkt = pb;
         end
