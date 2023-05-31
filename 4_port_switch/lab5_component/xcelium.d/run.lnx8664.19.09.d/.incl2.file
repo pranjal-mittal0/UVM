@@ -1,0 +1,14 @@
+packet_data.sv
+/ce/ana/proj/RND/ws/pranjalm/UVM_course/UVM/lab5_component/packet_data.sv
+component_base.sv
+/ce/ana/proj/RND/ws/pranjalm/UVM_course/UVM/lab5_component/component_base.sv
+sequencer.sv
+/ce/ana/proj/RND/ws/pranjalm/UVM_course/UVM/lab5_component/sequencer.sv
+driver.sv
+/ce/ana/proj/RND/ws/pranjalm/UVM_course/UVM/lab5_component/driver.sv
+monitor.sv
+/ce/ana/proj/RND/ws/pranjalm/UVM_course/UVM/lab5_component/monitor.sv
+agent.sv
+/ce/ana/proj/RND/ws/pranjalm/UVM_course/UVM/lab5_component/agent.sv
+packet_vc.sv
+/ce/ana/proj/RND/ws/pranjalm/UVM_course/UVM/lab5_component/packet_vc.sv

@@ -1,25 +1,26 @@
 /*-----------------------------------------------------------------
 File name     : vc_test.sv
-Developers    : Brian Dickinson
-Created       : 01/08/19
-Description   : Test module for 4-Port Switch VC - initial test without DUT
+Developers    : Pranjal Mittal
+Created       : 30/05/2023
+Description   : lab6 verification component test class
 Notes         : From the Cadence "Essential SystemVerilog for UVM" training
 -------------------------------------------------------------------
-Copyright Cadence Design Systems (c)2019
------------------------------------------------------------------*/
+This is for lab work for the above training.
 
+-----------------------------------------------------------------*/
 module packet_test;
 
   // Check import matches your package name`
   import packet_pkg::*;
 
   logic clk = 1'b0;
-  logic reset = 1'b0;;
+  logic reset = 1'b0;
 
   // 4-Port Switch interface instance
   port_if port0 (clk, reset);
 
   // Add your VC top level class handle
+  packet_vc pvc0;
 
 
   // Clock generator
@@ -36,9 +37,13 @@ module packet_test;
     @(negedge clk);
     reset = 1'b0;
 
-    // insert your VC instantiation, configuration and run code here:
 
-
+        // insert your VC instantiation, configuration and run code here:
+        //In the initial block, we construct the packet_vc instance and call the configure 
+        //method, with interface instance and port number arguments.
+    pvc0 = new("pvc0", null);
+    pvc0.configure(port0, 0);
+    pvc0.run(3);
 
     $finish;
   end
@@ -74,4 +79,3 @@ endfunction
      
 endmodule
    
-

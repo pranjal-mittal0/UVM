@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------
 File name     : switch_port.sv
-Developers    : Brian Dickinson
-Created       : 01/08/19
+Developers    : Pranjal Mittal
+Created       : 30/05/2023
 Description   : lab6_vc 4-port switch DUT using interface ports
 Notes         : From the Cadence "Essential SystemVerilog for UVM" training
 -------------------------------------------------------------------

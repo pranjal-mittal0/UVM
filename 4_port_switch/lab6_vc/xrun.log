@@ -1,0 +1,174 @@
+xrun(64): 19.09-s006: (c) Copyright 1995-2019 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	19.09-s006: Started on May 31, 2023 at 12:42:24 IST
+xrun
+	-f lab6run12.f
+		-timescale 1ns/100ps
+		packet_pkg.sv
+		port_if.sv
+		switch_test.sv
+		switch_port.sv
+Recompiling... reason: file './driver.sv' is newer than expected.
+	expected: Wed May 31 01:55:48 2023
+	actual:   Wed May 31 12:42:05 2023
+file: packet_pkg.sv
+	package worklib.packet_pkg:sv
+		errors: 0, warnings: 0
+file: port_if.sv
+	interface worklib.port_if:sv
+		errors: 0, warnings: 0
+file: switch_test.sv
+	module worklib.top:sv
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		packet_pkg
+		top
+xmelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.switch_port:sv <0x2e5d8886>
+			streams:  31, words: 27968
+		worklib.top:sv <0x56e06c61>
+			streams:  15, words: 14491
+		worklib.packet_pkg:sv <0x525d85b7>
+			streams:   8, words:  6593
+		worklib.packet_pkg:sv <0x62fa34a1>
+			streams:   6, words:  4330
+		worklib.packet_pkg:sv <0x210a6cc2>
+			streams:   6, words:  3482
+		worklib.packet_pkg:sv <0x50c120aa>
+			streams:   6, words:  4971
+		worklib.packet_pkg:sv <0x7badaa26>
+			streams:   5, words:  2312
+		worklib.packet_pkg:sv <0x4f36ee8f>
+			streams:   5, words:  2312
+		worklib.packet_pkg:sv <0x158c3c7f>
+			streams:   5, words:  2312
+		worklib.packet_pkg:sv <0x461dd17d>
+			streams:   6, words:  4412
+		worklib.packet_pkg:sv <0x3432354b>
+			streams:   9, words:  4428
+		worklib.port_if:sv <0x235eb2e5>
+			streams:   5, words:  8898
+		worklib.packet_pkg:sv <0x66096e12>
+			streams:  10, words:  8597
+		worklib.packet_pkg:sv <0x2e0b17f4>
+			streams:   0, words:     0
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                       Instances  Unique
+		Modules:                       2       2
+		Interfaces:                    4       1
+		Verilog packages:              1       1
+		Registers:                   142     125
+		Scalar wires:                 13       -
+		Always blocks:                15      12
+		Initial blocks:                5       5
+		Parallel blocks:               3       3
+		Cont. assignments:             3       3
+		Pseudo assignments:            1       1
+		SV Class declarations:        10      10
+		SV Class specializations:     10      10
+		Simulation timescale:      100ps
+	Writing initial simulation snapshot: worklib.top:sv
+Loading snapshot worklib.top:sv .................... Done
+xmsim: *W,XCLGNOPTM: The SystemVerilog constraint solver Xceligen options 'seed_only_rand and process_alternate_rng and ignore_worklib_name' are not specified and will default to 0. The recommended value for each of them is 1 which will become the default in a future release.
+SVSEED default: 1
+xmsim: *W,RNDXCELON: Xceligen, the new SystemVerilog constraint solver is used. Disabling Xceligen and using the legacy constraint solver is possible with "xrun/xmsim -xceligen on=0 ...".
+xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+xcelium> source /ce/vendors/cadence/xcelium/19.09.006/tools/xcelium/files/xmsimrc
+xcelium> run
+MONITOR started for port 0
+MONITOR started for port 1
+MONITOR started for port 2
+MONITOR started for port 3
+Port3 Monitor (pvc3.agt.mon) captures packet IN @40.00 ns
+----------------------------------
+name: pkt, type: SINGLE
+from source 8, to target 4, data 28
+----------------------------------
+
+Port2 Monitor (pvc2.agt.mon) captures packet IN @40.00 ns
+----------------------------------
+name: pkt, type: SINGLE
+from source 4, to target 2, data 63
+----------------------------------
+
+Port1 Monitor (pvc1.agt.mon) captures packet IN @40.00 ns
+----------------------------------
+name: pkt, type: BROADCAST
+from source 2, to target f, data fd
+----------------------------------
+
+Port0 Monitor (pvc0.agt.mon) captures packet IN @40.00 ns
+----------------------------------
+name: pkt, type: BROADCAST
+from source 1, to target f, data b2
+----------------------------------
+
+port1 interface monitor: packet OUT @110.00 ns
+----------------------------------
+name: pkt, type: BROADCAST
+from source 2, to target f, data fd
+----------------------------------
+
+port0 interface monitor: packet OUT @110.00 ns
+----------------------------------
+name: pkt, type: BROADCAST
+from source 1, to target f, data b2
+----------------------------------
+
+port1 interface monitor: packet OUT @150.00 ns
+----------------------------------
+name: pkt, type: SINGLE
+from source 4, to target 2, data 63
+----------------------------------
+
+port0 interface monitor: packet OUT @150.00 ns
+----------------------------------
+name: pkt, type: BROADCAST
+from source 2, to target f, data fd
+----------------------------------
+
+port3 interface monitor: packet OUT @150.00 ns
+----------------------------------
+name: pkt, type: BROADCAST
+from source 1, to target f, data b2
+----------------------------------
+
+port2 interface monitor: packet OUT @150.00 ns
+----------------------------------
+name: pkt, type: SINGLE
+from source 8, to target 4, data 28
+----------------------------------
+
+port3 interface monitor: packet OUT @190.00 ns
+----------------------------------
+name: pkt, type: BROADCAST
+from source 2, to target f, data fd
+----------------------------------
+
+port2 interface monitor: packet OUT @190.00 ns
+----------------------------------
+name: pkt, type: BROADCAST
+from source 1, to target f, data b2
+----------------------------------
+
+port2 interface monitor: packet OUT @230.00 ns
+----------------------------------
+name: pkt, type: BROADCAST
+from source 2, to target f, data fd
+----------------------------------
+
+port1 interface monitor: packet OUT @230.00 ns
+----------------------------------
+name: pkt, type: BROADCAST
+from source 1, to target f, data b2
+----------------------------------
+
+Simulation complete via $finish(1) at time 600 NS + 0
+./switch_test.sv:66     $finish;
+xcelium> exit
+TOOL:	xrun(64)	19.09-s006: Exiting on May 31, 2023 at 12:42:35 IST  (total: 00:00:11)

@@ -1,0 +1,3 @@
+SOFTINCLUDE /ce/vendors/cadence/xcelium/19.09.006/tools/inca/files/cds.lib
+include ../../../../../../../../../../vendors/cadence/ic/6.18.260/share/cdssetup/cds.lib
+define worklib ../worklib

@@ -1,0 +1,68 @@
+xrun(64): 19.09-s006: (c) Copyright 1995-2019 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	19.09-s006: Started on May 29, 2023 at 21:58:32 IST
+xrun
+	-f lab5run.f
+		packet_pkg.sv
+		packet_test.sv
+Recompiling... reason: file './monitor.sv' is newer than expected.
+	expected: Mon May 29 21:42:31 2023
+	actual:   Mon May 29 21:58:29 2023
+file: packet_pkg.sv
+	package worklib.packet_pkg:sv
+		errors: 0, warnings: 0
+file: packet_test.sv
+	module worklib.packet_test:sv
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		packet_pkg
+		packet_test
+xmelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.packet_test:sv <0x781aa08b>
+			streams:   3, words:  6728
+		worklib.packet_pkg:sv <0x79d82a29>
+			streams:   6, words:  3629
+		worklib.packet_pkg:sv <0x44424d7a>
+			streams:   5, words:  3804
+		worklib.packet_pkg:sv <0x0db28df7>
+			streams:   6, words:  3959
+		worklib.packet_pkg:sv <0x300cc70f>
+			streams:   5, words:  2288
+		worklib.packet_pkg:sv <0x6c5c7f84>
+			streams:   6, words:  3216
+		worklib.packet_pkg:sv <0x2c6ce480>
+			streams:   8, words:  3527
+		worklib.packet_pkg:sv <0x4edf5f58>
+			streams:   5, words:  2330
+		worklib.packet_pkg:sv <0x1c1ba890>
+			streams:   5, words:  2330
+		worklib.packet_pkg:sv <0x68b2608c>
+			streams:   5, words:  2330
+		worklib.packet_pkg:sv <0x3853ad66>
+			streams:   9, words:  3343
+		worklib.packet_pkg:sv <0x17102b66>
+			streams:   0, words:     0
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                    Instances  Unique
+		Modules:                    1       1
+		Verilog packages:           1       1
+		Registers:                 73      85
+		Initial blocks:             1       1
+		SV Class declarations:     10      10
+		SV Class specializations:  10      10
+	Writing initial simulation snapshot: worklib.packet_test:sv
+Loading snapshot worklib.packet_test:sv .................... Done
+xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+xcelium> source /ce/vendors/cadence/xcelium/19.09.006/tools/xcelium/files/xmsimrc
+xcelium> run
+Monitor @pac_vc.agt.mon
+Driver @pac_vc.agt.drv
+Sequencer @pac_vc.agt.seq
+xmsim: *W,RNQUIE: Simulation is complete.
+xcelium> exit
+TOOL:	xrun(64)	19.09-s006: Exiting on May 29, 2023 at 21:58:44 IST  (total: 00:00:12)
